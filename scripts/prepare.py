@@ -1,7 +1,7 @@
-"""Prepare public project artwork and source metadata without substituting original editions."""
+"""Prepare source artwork and exact original-file metadata for publication."""
 from pathlib import Path
 from html.parser import HTMLParser
-import urllib.request,urllib.parse,json,hashlib,base64
+import urllib.request,urllib.parse,json,hashlib,zipfile,io
 R=Path(__file__).resolve().parents[1]
 def get(url):
  with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'Installing-the-Missing-Middle-public-sources','Accept':'application/vnd.github+json'}),timeout=30) as r:return r.read()
@@ -18,6 +18,37 @@ if not any(x.get('slug')=='law-and-stewardship' and x.get('path') for x in a):
  url=urllib.parse.urljoin(base+'intelligence.html',item['src']);dest='assets/heroes/law-and-stewardship.webp';(R/dest).write_bytes(get(url))
  a=[x for x in a if x['slug']!='law-and-stewardship'];a.append({'slug':'law-and-stewardship','path':dest,'alt':item.get('alt','Personal and civic intelligence concept artwork'),'source_page':'https://auraofintelligence.github.io/UNGA81-Luke-Hayes/intelligence.html','source_image':url,'note':'Concept artwork from the connected source project.'})
  (R/'content/artwork.json').write_text(json.dumps(a,ensure_ascii=False,indent=2)+'\n')
+# An exact uploaded original may be inside an existing public source ZIP.
+# Inspect only matching-size PDF entries; do not extract or execute archive files.
+target=R/'documents/originals/Local Government Funding Inquiry Submission(20261029-080754).pdf'
+record=R/'content/archive-source-check.json'
+if not target.exists() and not record.exists():
+ expected='b28410f92a996e11da47511828230232ecb9a130';checked=[];found=None
+ def inspect_zip(data,depth=0):
+  if depth>1:return None
+  with zipfile.ZipFile(io.BytesIO(data)) as z:
+   for entry in z.infolist():
+    if entry.file_size==304726 and entry.filename.lower().endswith('.pdf'):
+     b=z.read(entry)
+     if hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()==expected:return b
+    if depth==0 and entry.filename.lower().endswith('.zip') and entry.file_size<12000000:
+     result=inspect_zip(z.read(entry),1)
+     if result:return result
+  return None
+ repos=['500-Queens-VC-2026','UNGA81-Luke-Hayes','Anglican-Diocese-82-Claytons-Amity','mutual-futures','ready-set-co-op-trust-hub','aura-genesis-geode-atlas','Redlands_discovers_Luke_Hayes','aura-disaster-resilience','open-record-luke-nathan-hayes']
+ for repo in repos:
+  if found:break
+  try:
+   tree=json.loads(get(f'https://api.github.com/repos/auraofintelligence/{repo}/git/trees/main?recursive=1'))
+   for item in tree.get('tree',[]):
+    if item.get('type')!='blob' or not item['path'].lower().endswith('.zip') or item.get('size',99999999)>15000000:continue
+    url=f'https://raw.githubusercontent.com/auraofintelligence/{repo}/main/'+urllib.parse.quote(item['path'])
+    try:
+     b=inspect_zip(get(url));checked.append(url)
+     if b:target.write_bytes(b);found=url;break
+    except Exception as exc:checked.append({'url':url,'error':str(exc)})
+  except Exception as exc:checked.append({'repo':repo,'error':str(exc)})
+ record.write_text(json.dumps({'exact_original_found':bool(found),'source':found,'archives_checked':checked},ensure_ascii=False,indent=2)+'\n')
 s=json.loads((R/'content/sources.json').read_text())
 guides=[
 ('A Fair Go for the AI Age: Postcode-Level Sovereign Compute','National rationale for shared community compute.'),
@@ -39,4 +70,5 @@ for d,(title,note) in zip(s['documents'],guides):
  if p.exists():
   b=p.read_bytes();assert hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()==d['git_blob'];d['bytes']=len(b);d['sha256']=hashlib.sha256(b).hexdigest()
 (R/'content/sources.json').write_text(json.dumps(s,ensure_ascii=False,indent=2)+'\n')
+(R/'content/source-import-report.json').write_text(json.dumps({'matched':sum(d['available'] for d in s['documents']),'expected':14,'missing':[d['original_name'] for d in s['documents'] if not d['available']]},ensure_ascii=False,indent=2)+'\n')
 print('Prepared artwork and',len(guides),'document guides.')
