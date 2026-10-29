@@ -1,0 +1,41 @@
+name: Preserve supplied source originals
+on:
+  push:
+    paths: ['scripts/collect_sources.py', '.github/workflows/source-import.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: source-import
+  cancel-in-progress: false
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Match exact uploaded originals by their Git blob hashes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/collect_sources.py
+      - name: Preserve matched originals and report
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add documents/originals content/sources.json content/source-import-report.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Preserve hash-matched supplied originals and complete source register'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-import-record
+          path: |
+            content/sources.json
+            content/source-import-report.json
+            documents/originals
