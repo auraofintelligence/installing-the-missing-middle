@@ -1,0 +1,84 @@
+name: Prepare presentation assets
+on:
+  push:
+    paths: ['.github/workflows/assets.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Preserve licensed source artwork with provenance
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          import urllib.request,urllib.parse,json,re
+          R=Path('.'); (R/'assets/heroes').mkdir(parents=True,exist_ok=True); (R/'comparison').mkdir(exist_ok=True)
+          sources={
+          'index':('ready-set-co-op-cultural-intelligence-node','index.html'),
+          'federation':('mutual-futures','ownership.html'),
+          'national-discovery':('ready-set-co-op-cultural-intelligence-node','network.html'),
+          'installation':('ready-set-co-op-cultural-intelligence-node','node.html'),
+          'learning':('ready-set-co-op-cultural-intelligence-node','process.html'),
+          'workloads':('aura-genesis-geode-atlas','intelligence.html'),
+          'finance':('500-Queens-VC-2026','index.html'),
+          'economics':('mutual-futures','capital.html'),
+          'renewal':('aura-genesis-geode-atlas','computational.html'),
+          'law-and-stewardship':('australian-law-2012-lukes-relevance','index.html'),
+          'component-briefs':('ready-set-co-op-trust-hub','index.html'),
+          'next-development':('UNGA81-Luke-Hayes','livelihoods.html'),
+          'sources':('UNGA81-Luke-Hayes','library.html'),
+          'connections':('ready-set-co-op-cultural-intelligence-node','projects.html'),
+          'downloads':('aura-genesis-geode-atlas','documents.html'),
+          'licence':('aura-genesis-geode-atlas','about.html'),
+          'sitemap':('aura-genesis-geode-atlas','sitemap.html')}
+          def get(u):
+           with urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'Missing-Middle-Presentation'}),timeout=45) as r:return r.read()
+          class Images(HTMLParser):
+           def __init__(self):super().__init__();self.items=[]
+           def handle_starttag(self,t,attrs):
+            d=dict(attrs)
+            if t=='img' and d.get('src'):self.items.append(d)
+          out=[]
+          for key,(repo,page) in sources.items():
+           base=f'https://raw.githubusercontent.com/auraofintelligence/{repo}/main/'
+           try:
+            parser=Images();parser.feed(get(base+page).decode())
+            def score(x):
+             s=(x.get('src','')+' '+x.get('class','')).lower()
+             return (100 if 'hero' in s else 0)+(10 if int(x.get('width','0') or '0')>600 else 0)-(1000 if any(w in s for w in ['favicon','logo','brand']) else 0)
+            images=sorted(parser.items,key=score,reverse=True)
+            chosen=next(x for x in images if score(x)>=0)
+            url=urllib.parse.urljoin(base+page,chosen['src']);ext=Path(urllib.parse.urlsplit(url).path).suffix.lower()
+            if ext not in ['.png','.jpg','.jpeg','.webp']:raise ValueError('Non-raster hero')
+            b=get(url);dest=f'assets/heroes/{key}{ext}';Path(dest).write_bytes(b)
+            out.append({'slug':key,'path':dest,'alt':chosen.get('alt','Source-project concept artwork'),'source_page':f'https://auraofintelligence.github.io/{repo}/{page}','source_image':url,'note':'Concept artwork reused from Luke Nathan Hayes’s connected source project; not a photograph of a completed installation.'})
+           except Exception as e:out.append({'slug':key,'error':str(e)})
+          Path('content/artwork.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
+          u='https://raw.githubusercontent.com/auraofintelligence/UNGA81-Luke-Hayes/main/documents/local-government-funding-submission.pdf'
+          try:Path('comparison/local-government-existing.pdf').write_bytes(get(u))
+          except Exception as e:print('Comparison source unavailable:',e)
+          print(json.dumps(out,ensure_ascii=False,indent=2))
+          PY
+      - name: Commit preserved artwork
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets content/artwork.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Preserve chapter-specific source artwork and attribution'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: artwork-and-source-comparison
+          path: |
+            assets
+            content/artwork.json
+            comparison
