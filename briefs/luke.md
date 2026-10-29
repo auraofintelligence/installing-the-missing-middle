@@ -1,4 +1,4 @@
-# Luke — component development brief
+# Luke: component development brief
 
 Installing the Missing Middle | Luke Nathan Hayes | 29 October 2026
 

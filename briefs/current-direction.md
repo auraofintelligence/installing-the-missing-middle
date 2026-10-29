@@ -1,4 +1,4 @@
-# Current direction — 29 October 2026
+# Current direction, 29 October 2026
 
 This record preserves Luke’s directions in this conversation for the plan and subsequent agent work.
 

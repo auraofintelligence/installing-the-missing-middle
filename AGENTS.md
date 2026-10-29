@@ -8,7 +8,7 @@ Preserve the federation of people and corporate vehicles. Do not impose a compul
 
 Brad builds the core infrastructure delivery team through his industry knowledge and contacts. Megan develops institutional and commercial arrangements. Luke carries the integrated architecture, applications and progression plans. Do not reduce these contributions to incidental introductions or repeat a lecture about the present stage of Luke’s systems.
 
-Use Ready SET Co-op with a capital R in current content and metadata. Preserve unchanged original documents, historical quotations and existing URL slugs.
+Use Ready SET Co-op with a capital R in current content and metadata. Use commas, colons or full stops instead of em dashes. Preserve unchanged original documents, historical quotations and existing URL slugs.
 
 Current human directions govern new work where an archive differs. C-Hour is non-monetary. Personal Auras and data belong to their people. Keep voluntary contribution, paid work and investment in distinct records.
 
