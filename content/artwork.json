@@ -72,10 +72,6 @@
     "note": "Concept artwork reused from Luke Nathan Hayes’s connected source project; not a photograph of a completed installation."
   },
   {
-    "slug": "law-and-stewardship",
-    "error": ""
-  },
-  {
     "slug": "component-briefs",
     "path": "assets/heroes/component-briefs.webp",
     "alt": "Generated concept image of the 9 Ballow Road main room as a Ready S.E.T. Co-op maker, film and tech hub with computers, shared tables, camera gear, tool benches and digital noticeboards.",
@@ -130,5 +126,13 @@
     "source_page": "https://auraofintelligence.github.io/aura-genesis-geode-atlas/sitemap.html",
     "source_image": "https://raw.githubusercontent.com/auraofintelligence/aura-genesis-geode-atlas/main/assets/images/hero-sitemap-v3.webp",
     "note": "Concept artwork reused from Luke Nathan Hayes’s connected source project; not a photograph of a completed installation."
+  },
+  {
+    "slug": "law-and-stewardship",
+    "path": "assets/heroes/law-and-stewardship.webp",
+    "alt": "A person uses smart glasses and a personal computer to connect creative work, memories and an ocean-habitat design.",
+    "source_page": "https://auraofintelligence.github.io/UNGA81-Luke-Hayes/intelligence.html",
+    "source_image": "https://raw.githubusercontent.com/auraofintelligence/UNGA81-Luke-Hayes/main/assets/images/intelligence-1536.webp?v=civilisation-20260921b",
+    "note": "Concept artwork from the connected source project."
   }
 ]

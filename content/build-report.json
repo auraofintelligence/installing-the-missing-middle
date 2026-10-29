@@ -1,0 +1,9 @@
+{
+  "html_pages": 32,
+  "originals_present": 13,
+  "originals_expected": 14,
+  "supplied_project_links": 14,
+  "chapters": 12,
+  "errors": [],
+  "plan_sha256": "2e265be8c8f1a9b746890fea9e7f6602bef6eb0ff97fd773244f05efc77996ba"
+}

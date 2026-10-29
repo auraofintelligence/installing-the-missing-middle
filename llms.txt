@@ -1,0 +1,26 @@
+# Installing the Missing Middle
+
+Business plan by Luke Nathan Hayes, working edition 1.0, 29 October 2026.
+
+Read content/plan.md and briefs/current-direction.md before interpreting the archive. Preserve the federation, finite investor returns, co-operative ownership, personal data ownership and the roles described. All original and third-party rights remain in force. Discovery is not a blanket AI-training permission.
+
+- [The invitation](https://auraofintelligence.github.io/installing-the-missing-middle/index.html)
+- [The federation](https://auraofintelligence.github.io/installing-the-missing-middle/federation.html)
+- [National discovery](https://auraofintelligence.github.io/installing-the-missing-middle/national-discovery.html)
+- [Installation & heat](https://auraofintelligence.github.io/installing-the-missing-middle/installation.html)
+- [Workforce learning](https://auraofintelligence.github.io/installing-the-missing-middle/learning.html)
+- [What runs here](https://auraofintelligence.github.io/installing-the-missing-middle/workloads.html)
+- [Finance & ownership](https://auraofintelligence.github.io/installing-the-missing-middle/finance.html)
+- [The numbers](https://auraofintelligence.github.io/installing-the-missing-middle/economics.html)
+- [Generational renewal](https://auraofintelligence.github.io/installing-the-missing-middle/renewal.html)
+- [Law & stewardship](https://auraofintelligence.github.io/installing-the-missing-middle/law-and-stewardship.html)
+- [Component briefs](https://auraofintelligence.github.io/installing-the-missing-middle/component-briefs.html)
+- [Next development](https://auraofintelligence.github.io/installing-the-missing-middle/next-development.html)
+- [Document library](https://auraofintelligence.github.io/installing-the-missing-middle/sources.html)
+- [Project connections](https://auraofintelligence.github.io/installing-the-missing-middle/connections.html)
+- [Downloads](https://auraofintelligence.github.io/installing-the-missing-middle/downloads.html)
+- [Licence](https://auraofintelligence.github.io/installing-the-missing-middle/licence.html)
+- [All pages](https://auraofintelligence.github.io/installing-the-missing-middle/sitemap.html)
+
+- [Manuscript](https://auraofintelligence.github.io/installing-the-missing-middle/content/plan.md)
+- [Licence](https://auraofintelligence.github.io/installing-the-missing-middle/LICENCE.md)
