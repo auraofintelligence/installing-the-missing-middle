@@ -1,0 +1,134 @@
+[
+  {
+    "slug": "index",
+    "path": "assets/heroes/index.webp",
+    "alt": "Concept image of a coastal community studio where people gather around a luminous island model with one computing rack nearby",
+    "source_page": "https://auraofintelligence.github.io/ready-set-co-op-cultural-intelligence-node/index.html",
+    "source_image": "https://raw.githubusercontent.com/auraofintelligence/ready-set-co-op-cultural-intelligence-node/main/assets/heroes/home.webp",
+    "note": "Concept artwork reused from Luke Nathan Hayes’s connected source project; not a photograph of a completed installation."
+  },
+  {
+    "slug": "federation",
+    "path": "assets/heroes/federation.webp",
+    "alt": "Two marine technicians inspect an autonomous survey catamaran supported on maintenance cradles.",
+    "source_page": "https://auraofintelligence.github.io/mutual-futures/ownership.html",
+    "source_image": "https://raw.githubusercontent.com/auraofintelligence/mutual-futures/main/assets/images/australian-marine-v2.webp",
+    "note": "Concept artwork reused from Luke Nathan Hayes’s connected source project; not a photograph of a completed installation."
+  },
+  {
+    "slug": "national-discovery",
+    "path": "assets/heroes/national-discovery.webp",
+    "alt": "Concept image of colourful island-like intelligence nodes forming a loose constellation across Oceania and the globe",
+    "source_page": "https://auraofintelligence.github.io/ready-set-co-op-cultural-intelligence-node/network.html",
+    "source_image": "https://raw.githubusercontent.com/auraofintelligence/ready-set-co-op-cultural-intelligence-node/main/assets/heroes/network.webp",
+    "note": "Concept artwork reused from Luke Nathan Hayes’s connected source project; not a photograph of a completed installation."
+  },
+  {
+    "slug": "installation",
+    "path": "assets/heroes/installation.webp",
+    "alt": "Concept image of two technicians beside one luminous computing rack in a timber coastal workspace",
+    "source_page": "https://auraofintelligence.github.io/ready-set-co-op-cultural-intelligence-node/node.html",
+    "source_image": "https://raw.githubusercontent.com/auraofintelligence/ready-set-co-op-cultural-intelligence-node/main/assets/heroes/node.webp",
+    "note": "Concept artwork reused from Luke Nathan Hayes’s connected source project; not a photograph of a completed installation."
+  },
+  {
+    "slug": "learning",
+    "path": "assets/heroes/learning.webp",
+    "alt": "Concept image of a planning room where local workloads flow as separate coloured layers between one computing rack and an island model",
+    "source_page": "https://auraofintelligence.github.io/ready-set-co-op-cultural-intelligence-node/process.html",
+    "source_image": "https://raw.githubusercontent.com/auraofintelligence/ready-set-co-op-cultural-intelligence-node/main/assets/heroes/process.webp",
+    "note": "Concept artwork reused from Luke Nathan Hayes’s connected source project; not a photograph of a completed installation."
+  },
+  {
+    "slug": "workloads",
+    "path": "assets/heroes/workloads.webp",
+    "alt": "A tested modular prototype beside task records and a correction notebook",
+    "source_page": "https://auraofintelligence.github.io/aura-genesis-geode-atlas/intelligence.html",
+    "source_image": "https://raw.githubusercontent.com/auraofintelligence/aura-genesis-geode-atlas/main/assets/images/hero-intelligence-v3.webp",
+    "note": "Concept artwork reused from Luke Nathan Hayes’s connected source project; not a photograph of a completed installation."
+  },
+  {
+    "slug": "finance",
+    "path": "assets/heroes/finance.webp",
+    "alt": "AI-generated concept artwork for Home",
+    "source_page": "https://auraofintelligence.github.io/500-Queens-VC-2026/index.html",
+    "source_image": "https://raw.githubusercontent.com/auraofintelligence/500-Queens-VC-2026/main/assets/images/home-hero.webp",
+    "note": "Concept artwork reused from Luke Nathan Hayes’s connected source project; not a photograph of a completed installation."
+  },
+  {
+    "slug": "economics",
+    "path": "assets/heroes/economics.webp",
+    "alt": "An older freight operator and younger colleagues plan work beside automated pallet handling and electric delivery trucks at an Australian depot.",
+    "source_page": "https://auraofintelligence.github.io/mutual-futures/capital.html",
+    "source_image": "https://raw.githubusercontent.com/auraofintelligence/mutual-futures/main/assets/images/australian-logistics.webp",
+    "note": "Concept artwork reused from Luke Nathan Hayes’s connected source project; not a photograph of a completed installation."
+  },
+  {
+    "slug": "renewal",
+    "path": "assets/heroes/renewal.webp",
+    "alt": "Future crystalline Geode with embedded compute tiles, a haptic reflection display, XR dock and sensor connections",
+    "source_page": "https://auraofintelligence.github.io/aura-genesis-geode-atlas/computational.html",
+    "source_image": "https://raw.githubusercontent.com/auraofintelligence/aura-genesis-geode-atlas/main/assets/images/hero-computational-v3.webp",
+    "note": "Concept artwork reused from Luke Nathan Hayes’s connected source project; not a photograph of a completed installation."
+  },
+  {
+    "slug": "law-and-stewardship",
+    "error": ""
+  },
+  {
+    "slug": "component-briefs",
+    "path": "assets/heroes/component-briefs.webp",
+    "alt": "Generated concept image of the 9 Ballow Road main room as a Ready S.E.T. Co-op maker, film and tech hub with computers, shared tables, camera gear, tool benches and digital noticeboards.",
+    "source_page": "https://auraofintelligence.github.io/ready-set-co-op-trust-hub/index.html",
+    "source_image": "https://raw.githubusercontent.com/auraofintelligence/ready-set-co-op-trust-hub/main/assets/ballow/concept-main-interior-maker-film-tech.webp",
+    "note": "Concept artwork reused from Luke Nathan Hayes’s connected source project; not a photograph of a completed installation."
+  },
+  {
+    "slug": "next-development",
+    "path": "assets/heroes/next-development.webp",
+    "alt": "A contemporary urban district combines robotic production with creative work, sport and shared public space.",
+    "source_page": "https://auraofintelligence.github.io/UNGA81-Luke-Hayes/livelihoods.html",
+    "source_image": "https://raw.githubusercontent.com/auraofintelligence/UNGA81-Luke-Hayes/main/assets/images/livelihoods-1536.webp?v=civilisation-20260921b",
+    "note": "Concept artwork reused from Luke Nathan Hayes’s connected source project; not a photograph of a completed installation."
+  },
+  {
+    "slug": "sources",
+    "path": "assets/heroes/sources.webp",
+    "alt": "Researchers compare documents, simulations and engineering evidence in a modern public research library.",
+    "source_page": "https://auraofintelligence.github.io/UNGA81-Luke-Hayes/library.html",
+    "source_image": "https://raw.githubusercontent.com/auraofintelligence/UNGA81-Luke-Hayes/main/assets/images/library-1536.webp?v=civilisation-20260921b",
+    "note": "Concept artwork reused from Luke Nathan Hayes’s connected source project; not a photograph of a completed installation."
+  },
+  {
+    "slug": "connections",
+    "path": "assets/heroes/connections.webp",
+    "alt": "Concept image of an intergenerational coastal workshop gathered around a detailed island project table containing sport, screens, a ferry, making, science, energy and subterranean systems",
+    "source_page": "https://auraofintelligence.github.io/ready-set-co-op-cultural-intelligence-node/projects.html",
+    "source_image": "https://raw.githubusercontent.com/auraofintelligence/ready-set-co-op-cultural-intelligence-node/main/assets/heroes/projects.webp",
+    "note": "Concept artwork reused from Luke Nathan Hayes’s connected source project; not a photograph of a completed installation."
+  },
+  {
+    "slug": "downloads",
+    "path": "assets/heroes/downloads.webp",
+    "alt": "Three source volumes and reading notes on an archival desk",
+    "source_page": "https://auraofintelligence.github.io/aura-genesis-geode-atlas/documents.html",
+    "source_image": "https://raw.githubusercontent.com/auraofintelligence/aura-genesis-geode-atlas/main/assets/images/hero-documents-v3.webp",
+    "note": "Concept artwork reused from Luke Nathan Hayes’s connected source project; not a photograph of a completed installation."
+  },
+  {
+    "slug": "licence",
+    "path": "assets/heroes/licence.webp",
+    "alt": "A project workbench with material studies, notes and a prototype fixture",
+    "source_page": "https://auraofintelligence.github.io/aura-genesis-geode-atlas/about.html",
+    "source_image": "https://raw.githubusercontent.com/auraofintelligence/aura-genesis-geode-atlas/main/assets/images/hero-about-v3.webp",
+    "note": "Concept artwork reused from Luke Nathan Hayes’s connected source project; not a photograph of a completed installation."
+  },
+  {
+    "slug": "sitemap",
+    "path": "assets/heroes/sitemap.webp",
+    "alt": "A physical mineral-and-metal orrery representing connected routes through the atlas",
+    "source_page": "https://auraofintelligence.github.io/aura-genesis-geode-atlas/sitemap.html",
+    "source_image": "https://raw.githubusercontent.com/auraofintelligence/aura-genesis-geode-atlas/main/assets/images/hero-sitemap-v3.webp",
+    "note": "Concept artwork reused from Luke Nathan Hayes’s connected source project; not a photograph of a completed installation."
+  }
+]
