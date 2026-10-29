@@ -20,7 +20,7 @@ FILES=[
 ('D13','SETCo 2026 Pitch Plan Revision(20261029-080533).pdf','f7bd8d246ba8483f087d9b83b25b3aebe50630dd','Ready SET strategy archive'),
 ('D14','Web3 Sensorium for Science Debate(20261029-083308).pdf','2aa8f529e1bddc6bd921766d6653fb9392af5220','Global Sensorium: scientific models and debate')]
 LINKS=[
-('P01','UNGA81 — A fair go in the age of intelligence','https://auraofintelligence.github.io/UNGA81-Luke-Hayes/','Public-purpose and missing-middle framework'),
+('P01','UNGA81: A fair go in the age of intelligence','https://auraofintelligence.github.io/UNGA81-Luke-Hayes/','Public-purpose and missing-middle framework'),
 ('P02','Ready SET Co-op Cultural Intelligence Node','https://auraofintelligence.github.io/ready-set-co-op-cultural-intelligence-node/index.html','A local rack, workloads, shared equipment and learning'),
 ('P03','Ready SET Co-op Trust Hub','https://auraofintelligence.github.io/ready-set-co-op-trust-hub/','Participation, relationships and shared assets'),
 ('P04','500 Queens Venture Capital','https://auraofintelligence.github.io/500-Queens-VC-2026/','Women-led enterprise, leadership and investment development'),
@@ -33,7 +33,7 @@ LINKS=[
 ('P11','Aura Genesis Geode Atlas','https://auraofintelligence.github.io/aura-genesis-geode-atlas/','Genesis, Geode development and teacher learning'),
 ('P12','Oceania Healthy De-Slop Co-ops','https://auraofintelligence.github.io/Oceania-healthy-de-slop-co-ops/','Locally shaped wellbeing co-operatives'),
 ('P13','82 Claytons Road Anglican partnership proposal','https://github.com/auraofintelligence/Anglican-Diocese-82-Claytons-Amity','Aged care, longevity and community assets'),
-('P14','Installing the Missing Middle — source repository','https://github.com/auraofintelligence/installing-the-missing-middle','This presentation, source register and shared development briefs')]
+('P14','Installing the Missing Middle source repository','https://github.com/auraofintelligence/installing-the-missing-middle','This presentation, source register and shared development briefs')]
 def get(url):
  headers={'User-Agent':'Installing-the-Missing-Middle-source-check','Accept':'application/vnd.github+json'}
  if url.startswith('https://api.github.com/') and os.getenv('GH_TOKEN'): headers['Authorization']='Bearer '+os.environ['GH_TOKEN']
