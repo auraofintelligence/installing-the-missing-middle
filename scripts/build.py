@@ -121,6 +121,8 @@ Preserve the federation of people and corporate vehicles. Do not impose a compul
 
 Brad builds the core infrastructure delivery team through his industry knowledge and contacts. Megan develops institutional and commercial arrangements. Luke carries the integrated architecture, applications and progression plans. Do not reduce these contributions to incidental introductions or repeat a lecture about the present stage of Luke’s systems.
 
+Use Ready SET Co-op with a capital R in current content and metadata. Preserve unchanged original documents, historical quotations and existing URL slugs.
+
 Current human directions govern new work where an archive differs. C-Hour is non-monetary. Personal Auras and data belong to their people. Keep voluntary contribution, paid work and investment in distinct records.
 
 Return a usable component, sources, explicit assumptions, dependencies on the other components and clearly identified proposals for decisions. Specific evidenced technical or commercial challenges are welcome; silently changing the purpose is not.
@@ -134,7 +136,7 @@ This record preserves Luke’s directions in this conversation for the plan and 
 
 - The business focuses on installing single-rack frontier compute, UPS and useful heat recovery; maintaining, upgrading and redeploying equipment remain part of the business.
 - Future population basis: 30 million; one rack per 10,000 people; 3,000-node planning baseline. Every postcode enters outreach in parallel. Actual installations follow the participating people, host facilities, workloads and agreements.
-- ready SET Co-op seeks members; P4A develops council/division and state/federal electorate twin connections. Identify schools, hospitals, pools, wellbeing and aged-care/longevity hubs in those regions.
+- Ready SET Co-op seeks members; P4A develops council/division and state/federal electorate twin connections. Identify schools, hospitals, pools, wellbeing and aged-care/longevity hubs in those regions.
 - Brad coordinates data-centre UPS installers, knows the industry from single racks to the latest public/private facilities, and has the contacts to build the core team. Megan brings hospital contract management, contract-law understanding and a former HIMAA role.
 - The structure is a federation of people and corporate vehicles, not one mandatory corporate parent.
 - Finance combines public support, finite-return investment and co-operative acquisitions. Acquisition payments can replenish deployment capital. Investor return and installer margin are separate.
@@ -175,7 +177,7 @@ def docx_build():
   from PIL import Image
   import io
   picture=io.BytesIO();Image.open(ROOT/a['path']).convert('RGB').save(picture,format='JPEG',quality=92);picture.seek(0)
-  doc.add_picture(picture,width=Inches(6.65));q=doc.add_paragraph('Concept artwork from the ready SET Co-op Cultural Intelligence Node.');q.runs[0].font.size=Pt(9)
+  doc.add_picture(picture,width=Inches(6.65));q=doc.add_paragraph('Concept artwork from the Ready SET Co-op Cultural Intelligence Node.');q.runs[0].font.size=Pt(9)
  doc.add_paragraph('Prepared by Luke Nathan Hayes\nFor joint development with Megan and Brad\n29 October 2026')
  doc.add_paragraph('The national starting point','Heading 2');doc.add_paragraph('30 million people · One single-rack node per 10,000 people · 3,000-node planning baseline')
  doc.add_paragraph('The installation business connects practical delivery, useful heat, workforce development and ongoing upgrades with a financed pathway into local co-operative ownership.')
@@ -211,7 +213,7 @@ def docx_build():
   if block.startswith('# '):doc.add_heading(block[2:],level=1).paragraph_format.page_break_before=True
   elif block.startswith('## '):doc.add_heading(block[3:],level=2)
   elif block:doc.add_paragraph(block)
- doc.core_properties.title='Installing the Missing Middle';doc.core_properties.subject='Business plan for community compute, useful heat and co-operative ownership';doc.core_properties.author='Luke Nathan Hayes';doc.core_properties.keywords='community compute; useful heat; ready SET Co-op; federation; Megan; Brad'
+ doc.core_properties.title='Installing the Missing Middle';doc.core_properties.subject='Business plan for community compute, useful heat and co-operative ownership';doc.core_properties.author='Luke Nathan Hayes';doc.core_properties.keywords='community compute; useful heat; Ready SET Co-op; federation; Megan; Brad'
  path=ROOT/'downloads/Installing-the-Missing-Middle-Plan.docx';path.parent.mkdir(exist_ok=True);doc.save(path);return path
 
 def checks():
@@ -238,7 +240,25 @@ def checks():
   if p.exists():
    b=p.read_bytes();sha=hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()
    if sha!=d['git_blob']:errors.append('Original changed: '+d['id'])
- report={'html_pages':count,'originals_present':sum((ROOT/d['path']).exists() for d in DOCS),'originals_expected':14,'supplied_project_links':len(LINKS),'chapters':len(CH),'errors':errors,'plan_sha256':hashlib.sha256((ROOT/'content/plan.md').read_bytes()).hexdigest()}
+ # Source reading copies reproduce historical wording; current labels and plans use the name above.
+ incorrect_name=re.compile(r'\bready\s+SET\b')
+ current_files=[ROOT/'content/plan.md',ROOT/'content/sources.json',ROOT/'AGENTS.md',*ROOT.glob('briefs/*.md'),*ROOT.glob('*.html')]
+ for p in current_files:
+  if incorrect_name.search(p.read_text(encoding='utf-8')):errors.append('Incorrect co-op capitalisation: '+str(p.relative_to(ROOT)))
+ for p in ROOT.glob('documents/readers/*.html'):
+  # The reader body is archival; its title and library heading are current metadata.
+  text=p.read_text(encoding='utf-8')
+  for label in re.findall(r'<(?:title|h1)>(.*?)</(?:title|h1)>',text,flags=re.S):
+   if incorrect_name.search(label):errors.append('Incorrect co-op label: '+str(p.relative_to(ROOT)))
+ with zipfile.ZipFile(ROOT/'downloads/Installing-the-Missing-Middle-Plan.docx') as z:
+  for name in z.namelist():
+   if name.endswith('.xml') and incorrect_name.search(z.read(name).decode('utf-8')):errors.append('Incorrect co-op capitalisation in Word: '+name)
+ pdf=ROOT/'downloads/Installing-the-Missing-Middle-Plan.pdf'
+ if pdf.exists():
+  import fitz
+  with fitz.open(pdf) as doc:
+   if incorrect_name.search('\n'.join(page.get_text() for page in doc)) or incorrect_name.search(json.dumps(doc.metadata)):errors.append('Incorrect co-op capitalisation in PDF')
+ report={'html_pages':count,'originals_present':sum((ROOT/d['path']).exists() for d in DOCS),'originals_expected':14,'supplied_project_links':len(LINKS),'chapters':len(CH),'co_op_name':'Ready SET Co-op','errors':errors,'plan_sha256':hashlib.sha256((ROOT/'content/plan.md').read_bytes()).hexdigest()}
  write('content/build-report.json',json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2));return not errors
 
 def main():

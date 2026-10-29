@@ -63,7 +63,7 @@ guides=[
 ('Fiji–Australia Vuvale Union Submission','Regional relationships, ownership, workforce and public-purpose development.'),
 ('Local Government Funding Inquiry Submission','Civic twins, community assets and local-government funding context.'),
 ('Ocean of Peace Alliance / Veitacini Treaty Submission','Regional cooperation and longer-term shared capability.'),
-('ready SET Co-op: 2026 Strategy Archive','Earlier organisational and workforce design; read with current naming and the non-monetary C-Hour direction.'),
+('Ready SET Co-op: 2026 Strategy Archive','Earlier organisational and workforce design; read with current naming and the non-monetary C-Hour direction.'),
 ('Global Sensorium: Scientific Models and Debate','Earth-space digital twins, sensor pipelines, simulation, model comparison and community science.')]
 for d,(title,note) in zip(s['documents'],guides):
  d['title']=title;d['note']=note;p=R/d['path'];d['available']=p.exists()

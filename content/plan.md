@@ -52,7 +52,7 @@ The federation can include co-operatives, existing businesses, project companies
 
 ### Ownership and participation
 
-ready SET Co-op is the repeatable pattern for sustainable employment and training, shared equipment and local ownership. Mutual Futures contributes business succession and knowledge transfer; 500 Queens contributes women-led enterprise, leadership and investment development. People retain ownership of their personal Auras and data. A co-operative owns its agreed assets, not its members’ private lives.
+Ready SET Co-op is the repeatable pattern for sustainable employment and training, shared equipment and local ownership. Mutual Futures contributes business succession and knowledge transfer; 500 Queens contributes women-led enterprise, leadership and investment development. People retain ownership of their personal Auras and data. A co-operative owns its agreed assets, not its members’ private lives.
 
 Sources: P02, P03, P04, P05
 
@@ -62,7 +62,7 @@ One geographic opportunity register connects national outreach with local instal
 
 ### Every postcode is in the invitation
 
-The outreach algorithm works across all postcodes in parallel through ready SET Co-op, seeking members, business owners, technical people, training partners and organisations interested in shared infrastructure. An expression of interest starts a conversation; people do not need a completed engineering study or an investment commitment to participate in developing the opportunity.
+The outreach algorithm works across all postcodes in parallel through Ready SET Co-op, seeking members, business owners, technical people, training partners and organisations interested in shared infrastructure. An expression of interest starts a conversation; people do not need a completed engineering study or an investment commitment to participate in developing the opportunity.
 
 ### Civic twins at several scales
 
@@ -164,7 +164,7 @@ Wellbeing and longevity hubs add personal-model development, session-media proce
 
 ### Creative, business and community work
 
-Media production, local enterprise, technical design, language tools, environmental observation and community-selected applications sit alongside these programmes. Geode Development page 37 explicitly joins ready SET, wellbeing hubs, community twins, media, instrument analysis and materials simulation. Each participating service supplies its workload and resource brief. [D04, p. 37]
+Media production, local enterprise, technical design, language tools, environmental observation and community-selected applications sit alongside these programmes. Geode Development page 37 explicitly joins Ready SET, wellbeing hubs, community twins, media, instrument analysis and materials simulation. Each participating service supplies its workload and resource brief. [D04, p. 37]
 
 Sources: D03, D04, D05, D06, D07, D14
 

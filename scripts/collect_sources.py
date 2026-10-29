@@ -17,12 +17,12 @@ FILES=[
 ('D10','Fiji_Australia_Vuvale_Union_Submission_Luke_Nathan_Hayes_2026(20261029-080505).docx','993a79420e2d09781faa943e5858887f1403eac6','Fiji–Australia Vuvale Union submission'),
 ('D11','Local Government Funding Inquiry Submission(20261029-080754).pdf','b28410f92a996e11da47511828230232ecb9a130','Local government funding submission'),
 ('D12','Ocean_of_Peace_Alliance_Veitacini_Treaty_Submission_Luke_Nathan_Hayes_2026(20261029-080506).docx','ae5697a50652fd89896d24acc3e7b0424bec223d','Ocean of Peace / Veitacini submission'),
-('D13','SETCo 2026 Pitch Plan Revision(20261029-080533).pdf','f7bd8d246ba8483f087d9b83b25b3aebe50630dd','ready SET strategy archive'),
+('D13','SETCo 2026 Pitch Plan Revision(20261029-080533).pdf','f7bd8d246ba8483f087d9b83b25b3aebe50630dd','Ready SET strategy archive'),
 ('D14','Web3 Sensorium for Science Debate(20261029-083308).pdf','2aa8f529e1bddc6bd921766d6653fb9392af5220','Global Sensorium: scientific models and debate')]
 LINKS=[
 ('P01','UNGA81 — A fair go in the age of intelligence','https://auraofintelligence.github.io/UNGA81-Luke-Hayes/','Public-purpose and missing-middle framework'),
-('P02','ready SET Co-op Cultural Intelligence Node','https://auraofintelligence.github.io/ready-set-co-op-cultural-intelligence-node/index.html','A local rack, workloads, shared equipment and learning'),
-('P03','ready SET Co-op Trust Hub','https://auraofintelligence.github.io/ready-set-co-op-trust-hub/','Participation, relationships and shared assets'),
+('P02','Ready SET Co-op Cultural Intelligence Node','https://auraofintelligence.github.io/ready-set-co-op-cultural-intelligence-node/index.html','A local rack, workloads, shared equipment and learning'),
+('P03','Ready SET Co-op Trust Hub','https://auraofintelligence.github.io/ready-set-co-op-trust-hub/','Participation, relationships and shared assets'),
 ('P04','500 Queens Venture Capital','https://auraofintelligence.github.io/500-Queens-VC-2026/','Women-led enterprise, leadership and investment development'),
 ('P05','Mutual Futures','https://auraofintelligence.github.io/mutual-futures/','Business succession, ownership, learning and time'),
 ('P06','Australian Law 2012 and Your Relevance','https://auraofintelligence.github.io/australian-law-2012-lukes-relevance/','Personal and project-specific legal relevance'),
