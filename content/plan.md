@@ -136,7 +136,7 @@ Sources: D05, D13, P05
 
 ## A shared infrastructure for many useful lives
 
-The uploaded programmes supply part of the workload base—not a closed catalogue of permitted uses.
+The uploaded programmes supply part of the workload base, not a closed catalogue of permitted uses.
 
 ### Personal Auras and chosen AI tools
 

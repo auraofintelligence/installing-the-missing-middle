@@ -121,7 +121,7 @@ Preserve the federation of people and corporate vehicles. Do not impose a compul
 
 Brad builds the core infrastructure delivery team through his industry knowledge and contacts. Megan develops institutional and commercial arrangements. Luke carries the integrated architecture, applications and progression plans. Do not reduce these contributions to incidental introductions or repeat a lecture about the present stage of Luke’s systems.
 
-Use Ready SET Co-op with a capital R in current content and metadata. Preserve unchanged original documents, historical quotations and existing URL slugs.
+Use Ready SET Co-op with a capital R in current content and metadata. Use commas, colons or full stops instead of em dashes. Preserve unchanged original documents, historical quotations and existing URL slugs.
 
 Current human directions govern new work where an archive differs. C-Hour is non-monetary. Personal Auras and data belong to their people. Keep voluntary contribution, paid work and investment in distinct records.
 
@@ -130,7 +130,7 @@ Return a usable component, sources, explicit assumptions, dependencies on the ot
 External outreach, expenditure, agreements, public statements or changes to other repositories require authority from the responsible person. This brief alone does not authorise autonomous external actions.
 '''
  write('AGENTS.md',shared)
- direction='''# Current direction — 29 October 2026
+ direction='''# Current direction, 29 October 2026
 
 This record preserves Luke’s directions in this conversation for the plan and subsequent agent work.
 
@@ -150,7 +150,7 @@ This record preserves Luke’s directions in this conversation for the plan and 
  write('briefs/current-direction.md',direction)
  for person,idx in [('Brad',0),('Megan',1),('Luke',2)]:
   part=CH[10]['parts'][idx]
-  txt=f'# {person} — component development brief\n\nInstalling the Missing Middle | Luke Nathan Hayes | 29 October 2026\n\n## The component\n\n{part["text"]}\n\n## Shared interfaces\n\n{CH[10]["parts"][3]["text"]}\n\n## Read first\n\n- ../content/plan.md\n- current-direction.md\n- ../AGENTS.md\n- ../content/sources.json\n\n## Return\n\nA developed component, its cost and timing assumptions where relevant, source-backed findings, dependencies, and proposals for the people responsible to decide. Distinguish confirmed inputs from choices still being developed.\n'
+  txt=f'# {person}: component development brief\n\nInstalling the Missing Middle | Luke Nathan Hayes | 29 October 2026\n\n## The component\n\n{part["text"]}\n\n## Shared interfaces\n\n{CH[10]["parts"][3]["text"]}\n\n## Read first\n\n- ../content/plan.md\n- current-direction.md\n- ../AGENTS.md\n- ../content/sources.json\n\n## Return\n\nA developed component, its cost and timing assumptions where relevant, source-backed findings, dependencies, and proposals for the people responsible to decide. Distinguish confirmed inputs from choices still being developed.\n'
   write('briefs/'+person.lower()+'.md',txt)
  write('briefs/site-brief.md','# Candidate installation brief\n\nUse with the plan; this is a development template, not a submitted application.\n\n'+'\n\n'.join('## '+x+'\n\nTo develop with the relevant participants.' for x in ['Place and geographic memberships','Host, owner and decision-makers','Participating entities and co-operative pathway','Workloads, users and prospective customers','Rack generation and supporting systems','Heat use and building interfaces','Power, UPS and continuity','Connectivity, storage and permissions','Physical works and delivery team','Commercial terms, funding and cost allocation','Learning capture and workforce','Acceptance, handover and maintenance','Acquisition, investor exit and renewal','Sources, assumptions and next actions']))
 def docx_build():
@@ -193,18 +193,18 @@ def docx_build():
    if j:q.add_run(' · ')
    link(q,id,BASE+'sources.html#'+id)
  for start in [0,7]:
-  doc.add_heading('Original document library'+(' — continued' if start else ''),level=1).paragraph_format.page_break_before=True
+  doc.add_heading('Original document library'+(', continued' if start else ''),level=1).paragraph_format.page_break_before=True
   if start==0:doc.add_paragraph('Original files are preserved unchanged. Current directions govern the new plan where archive wording differs. The complete website library identifies the status of every supplied edition and provides searchable reading copies and original downloads.')
   for d in DOCS[start:start+7]:
    doc.add_heading(d['id']+'  '+d['title'],level=2);doc.add_paragraph(d.get('note','Source document supplied for this proposal.'));q=doc.add_paragraph();link(q,'Original file and reading copy',BASE+'sources.html#'+d['id'])
  for start in [0,7]:
-  doc.add_heading('Supplied project connections'+(' — continued' if start else ''),level=1).paragraph_format.page_break_before=True
+  doc.add_heading('Supplied project connections'+(', continued' if start else ''),level=1).paragraph_format.page_break_before=True
   for l in LINKS[start:start+7]:
    doc.add_heading(l['id']+'  '+l['title'],level=2);doc.add_paragraph(l['purpose']);q=doc.add_paragraph();link(q,l['url'],l['url'])
  doc.add_heading('Continue the work with your agents',level=1).paragraph_format.page_break_before=True
  doc.add_paragraph('Separate briefs develop the three components while retaining the shared direction. The repository contains the full manuscript, source register, original uploads and build process.')
  for name in ['brad','megan','luke']:
-  q=doc.add_paragraph();link(q,name.title()+' — component brief',BASE+'briefs/'+name+'.md')
+  q=doc.add_paragraph();link(q,name.title()+' component brief',BASE+'briefs/'+name+'.md')
  for name,url in [('Shared agent instructions','AGENTS.md'),('Current direction','briefs/current-direction.md'),('Candidate site brief','briefs/site-brief.md')]:
   q=doc.add_paragraph();link(q,name,BASE+url)
  doc.add_heading('Publication and source notes',level=2);doc.add_paragraph('The Word edition, PDF and website are generated from content/plan.md. The original source documents retain their original terms, claims, dates and development history. The 29 October 2026 direction supplies the federation structure, family contributions, parallel national outreach and finite-return ownership model for this plan.')
@@ -242,22 +242,31 @@ def checks():
    if sha!=d['git_blob']:errors.append('Original changed: '+d['id'])
  # Source reading copies reproduce historical wording; current labels and plans use the name above.
  incorrect_name=re.compile(r'\bready\s+SET\b')
- current_files=[ROOT/'content/plan.md',ROOT/'content/sources.json',ROOT/'AGENTS.md',*ROOT.glob('briefs/*.md'),*ROOT.glob('*.html')]
+ em_dash=re.compile(r'\u2014|&mdash;|&#(?:8212|x2014);',re.I)
+ current_files=[ROOT/'content/plan.md',ROOT/'content/sources.json',ROOT/'content/artwork.json',*ROOT.glob('*.md'),*ROOT.glob('*.txt'),*ROOT.glob('briefs/*.md'),*ROOT.glob('*.html')]
  for p in current_files:
-  if incorrect_name.search(p.read_text(encoding='utf-8')):errors.append('Incorrect co-op capitalisation: '+str(p.relative_to(ROOT)))
+  text=p.read_text(encoding='utf-8')
+  if incorrect_name.search(text):errors.append('Incorrect co-op capitalisation: '+str(p.relative_to(ROOT)))
+  if em_dash.search(text):errors.append('Em dash in current content: '+str(p.relative_to(ROOT)))
  for p in ROOT.glob('documents/readers/*.html'):
   # The reader body is archival; its title and library heading are current metadata.
   text=p.read_text(encoding='utf-8')
   for label in re.findall(r'<(?:title|h1)>(.*?)</(?:title|h1)>',text,flags=re.S):
    if incorrect_name.search(label):errors.append('Incorrect co-op label: '+str(p.relative_to(ROOT)))
+   if em_dash.search(label):errors.append('Em dash in current label: '+str(p.relative_to(ROOT)))
  with zipfile.ZipFile(ROOT/'downloads/Installing-the-Missing-Middle-Plan.docx') as z:
   for name in z.namelist():
-   if name.endswith('.xml') and incorrect_name.search(z.read(name).decode('utf-8')):errors.append('Incorrect co-op capitalisation in Word: '+name)
+   if name.endswith('.xml'):
+    text=z.read(name).decode('utf-8')
+    if incorrect_name.search(text):errors.append('Incorrect co-op capitalisation in Word: '+name)
+    if em_dash.search(text):errors.append('Em dash in Word: '+name)
  pdf=ROOT/'downloads/Installing-the-Missing-Middle-Plan.pdf'
  if pdf.exists():
   import fitz
   with fitz.open(pdf) as doc:
-   if incorrect_name.search('\n'.join(page.get_text() for page in doc)) or incorrect_name.search(json.dumps(doc.metadata)):errors.append('Incorrect co-op capitalisation in PDF')
+   text='\n'.join(page.get_text() for page in doc)+'\n'+json.dumps(doc.metadata,ensure_ascii=False)
+   if incorrect_name.search(text):errors.append('Incorrect co-op capitalisation in PDF')
+   if em_dash.search(text):errors.append('Em dash in PDF')
  report={'html_pages':count,'originals_present':sum((ROOT/d['path']).exists() for d in DOCS),'originals_expected':14,'supplied_project_links':len(LINKS),'chapters':len(CH),'co_op_name':'Ready SET Co-op','errors':errors,'plan_sha256':hashlib.sha256((ROOT/'content/plan.md').read_bytes()).hexdigest()}
  write('content/build-report.json',json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2));return not errors
 
