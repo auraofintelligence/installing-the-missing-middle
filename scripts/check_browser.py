@@ -22,7 +22,7 @@ try:
    if page.locator('#all-nav').is_hidden():errors.append('Menu did not open')
    page.keyboard.press('Escape')
    if not page.locator('#all-nav').is_hidden():errors.append('Escape did not close menu')
-   page.goto('http://127.0.0.1:8765/sources.html');page.locator('[data-filter]').fill('Teacher')
+   page.goto('http://127.0.0.1:8765/sources.html');page.locator('[data-filter]').fill('Aura Teacher Training')
    if page.locator('[data-search]:visible').count()!=1:errors.append('Source search mismatch')
    page.locator('[data-filter]').fill('zzzz-no-result')
    if page.locator('[data-empty]').is_hidden():errors.append('Empty search state missing')
